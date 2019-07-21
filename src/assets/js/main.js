@@ -109,7 +109,7 @@ function printTasks(){
       newInput.type = 'checkbox';
       newInput.setAttribute('name', 'tasks');
       newInput.setAttribute('id', tasks[i].index);
-      newInput.addEventListener('change');
+      newInput.addEventListener('change', handleTasks);
       if(tasks[i].checked === true){
         newTask.classList.add('done');
         newInput.checked = true;
@@ -147,6 +147,29 @@ function handleAddTask(){
   reorderIndex();
   saveInLocalStorage();
   printTasks();
+}
+
+//Checkbox functionality
+
+function handleTasks(e){
+  const id = e.target.id; //índice del elemento en array
+  const itemToMove = tasks[id];
+  if(itemToMove.checked === false){
+    const lastPossition = tasks.length;
+    itemToMove.checked = true;
+    tasks.splice(id, 1);
+    tasks.splice(lastPossition, 0, itemToMove);
+    reorderIndex();
+    saveInLocalStorage();
+    printTasks();
+  } else {
+    itemToMove.checked = false;
+    tasks.splice(id,1);
+    tasks.splice(0,0,itemToMove);
+    reorderIndex();
+    saveInLocalStorage();
+    printTasks();
+  }
 }
 
 
