@@ -122,9 +122,17 @@ function printTasks(){
 
 printTasks();
 
+//Handle creating new task
+
+function handleWritting(e){
+  newTask.value = e.currentTarget.value;
+}
+
 
 
 
 
 
 getDate();
+
+inputTask.addEventListener('change', handleWritting);
