@@ -140,6 +140,14 @@ function saveInLocalStorage(){
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+//Hide Modal
+
+function handleHideModal(){
+  inputTask.value='';
+  modalBackground.classList.add('hidden');
+  modalWindow.classList.add('hidden');
+}
+
 //Handle add task
 
 function handleAddTask(){
@@ -147,6 +155,14 @@ function handleAddTask(){
   reorderIndex();
   saveInLocalStorage();
   printTasks();
+  handleHideModal();
+}
+
+//Open modal
+
+function handleOpenModal(){
+  modalBackground.classList.remove('hidden');
+  modalWindow.classList.remove('hidden');
 }
 
 //Checkbox functionality
@@ -179,9 +195,9 @@ function enterTrigger(e){
   }
 }
 
-
-
 getDate();
 addButton.addEventListener('click', handleAddTask);
 inputTask.addEventListener('change', handleWritting);
 inputTask.addEventListener('keyup', enterTrigger);
+openModalButton.addEventListener('click', handleOpenModal);
+outsideWindow.addEventListener('click', handleHideModal);
