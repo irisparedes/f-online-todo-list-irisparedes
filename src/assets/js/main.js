@@ -45,7 +45,7 @@ let newTask = {
 
 let tasks = [];
 // generar date y guardar valores
- function getDate() {
+function getDate() {
   let date = new Date ();
   let dayNumber = date.getDate(); //Number of the day (0-31)
   let dayOfTheWeek = date.getDay() - 1;
@@ -90,6 +90,39 @@ function showDate(dayOfTheWeek, dayNumber, month, year) {
   dayNameContent.innerText = dayName;
   monthAndYearContent.innerText = monthName + ', ' + year;
 }
+
+//Print tasks from Local Storage
+
+function printTasks(){
+  containerTasks.innerHTML = '';
+  if(JSON.parse(localStorage.getItem('tasks'))){
+    tasks = JSON.parse(localStorage.getItem('tasks'));
+    for(let i = 0; i < tasks.length; i++){
+      const newTask = document.createElement('li');
+      newTask.classList.add('container__form-option');
+      const newLabel = document.createElement('label');
+      newLabel.classList.add('container__form-option-label');
+      newLabel.setAttribute('for', tasks[i].index);
+      newLabel.innerHTML = tasks[i].value;
+      const newInput = document.createElement('input');
+      newInput.classList.add('container__form-option-input');
+      newInput.type = 'checkbox';
+      newInput.setAttribute('name', 'tasks');
+      newInput.setAttribute('id', tasks[i].index);
+      newInput.addEventListener('change');
+      if(tasks[i].checked === true){
+        newTask.classList.add('done');
+        newInput.checked = true;
+      }
+      newTask.append(newLabel, newInput);
+      containerTasks.appendChild(newTask);
+    }
+  }
+}
+
+printTasks();
+
+
 
 
 
