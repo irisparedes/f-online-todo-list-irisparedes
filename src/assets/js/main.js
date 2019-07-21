@@ -127,12 +127,30 @@ printTasks();
 function handleWritting(e){
   newTask.value = e.currentTarget.value;
 }
+//Reorder index of task array
 
+function reorderIndex(){
+  tasks.map((item, index) => {
+    return item.index = index;
+  });
+}
 
+//Save data in Local Storage
+function saveInLocalStorage(){
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
 
+//Handle add task
+
+function handleAddTask(){
+  tasks.unshift(newTask);
+  reorderIndex();
+  saveInLocalStorage();
+  printTasks();
+}
 
 
 
 getDate();
-
+addButton.addEventListener('click', handleAddTask);
 inputTask.addEventListener('change', handleWritting);
