@@ -171,9 +171,17 @@ function handleTasks(e){
     printTasks();
   }
 }
+//Trigger handleAddTask function when pressing enter
+
+function enterTrigger(e){
+  if(e.keyCode === 13){
+    handleAddTask();
+  }
+}
 
 
 
 getDate();
 addButton.addEventListener('click', handleAddTask);
 inputTask.addEventListener('change', handleWritting);
+inputTask.addEventListener('keyup', enterTrigger);
