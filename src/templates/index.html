@@ -1,13 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<title>Adalab Web Starter Kit</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" href="favicon.png"/>
-	<link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <title>Prueba técnica 6. To do list, Iris Paredes</title>
 </head>
 <body>
-  <div class="page">
-  </div>
-</body>
-</html>
+    <div class="container">
+      <header class="container__header">
+        <img class="container__header-image" src="icons/favicon.png" alt="logo-adalab">
+        <div class="container__header-date">
+          <div class="container__header-date-numberday"></div>
+          <div class="container__header-date-daymonthyear">
+            <div class="container__header-date-daymonthyear-day">
+              Lunes
+            </div>
+            <div class="container__header-date-daymonthyear-monthyear">
+                Abril, 2018
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <form class="container__form">
+          <ul class='container__form-list'></ul>
+        </form>
+      </main>
+      <footer class="container__footer">
+        <button class="container__footer-button">
+          <img src="images/plus.jpg" alt="plus">
+        </button>
+      </footer>
+    </div>
+    <div class="container container-modal"></div>
+    <div class="container__modal-window">
+      <div class="container__modal-window-wrapper">
+        <div class="container__modal-window-wrapper-input">
+          <label>Nueva tarea</label>
+          <input class="add__task-input" type="text" value="">
+        </div>
+        <div class="container__modal-window-wrapper-button">
+          <button class="add__button">Añadir</button>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+  </body>
+  </html>
