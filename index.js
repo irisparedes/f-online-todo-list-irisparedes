@@ -19,7 +19,7 @@ let newTask = {
 };
 
 let tasks = [];
-// generar date y guardar valores
+//generate date and save values
 function getDate() {
   let date = new Date ();
   let dayNumber = date.getDate(); //Number of the day (0-31)
@@ -30,9 +30,7 @@ function getDate() {
   showDate(dayOfTheWeek, dayNumber, month, year);
 }
 
-//mostrar en pantalla datos getDate
 //Print date on header
-
 function showDate(dayOfTheWeek, dayNumber, month, year) {
   const allMonths = [
     'Enero',
@@ -67,7 +65,6 @@ function showDate(dayOfTheWeek, dayNumber, month, year) {
 }
 
 //Print tasks from Local Storage
-
 function printTasks(){
   containerTasks.innerHTML = '';
   if(JSON.parse(localStorage.getItem('tasks'))){
@@ -98,12 +95,11 @@ function printTasks(){
 printTasks();
 
 //Handle creating new task
-
 function handleWritting(e){
   newTask.value = e.currentTarget.value;
 }
-//Reorder index of task array
 
+//Reorder index of task array
 function reorderIndex(){
   tasks.map((item, index) => {
     return item.index = index;
@@ -116,7 +112,6 @@ function saveInLocalStorage(){
 }
 
 //Hide Modal
-
 function handleHideModal(){
   inputTask.value='';
   modalBackground.classList.add('hidden');
@@ -124,7 +119,6 @@ function handleHideModal(){
 }
 
 //Handle add task
-
 function handleAddTask(){
   tasks.unshift(newTask);
   reorderIndex();
@@ -134,16 +128,14 @@ function handleAddTask(){
 }
 
 //Open modal
-
 function handleOpenModal(){
   modalBackground.classList.remove('hidden');
   modalWindow.classList.remove('hidden');
 }
 
 //Checkbox functionality
-
 function handleTasks(e){
-  const id = e.target.id; //índice del elemento en array
+  const id = e.target.id; // index of the element in array
   const itemToMove = tasks[id];
   if(itemToMove.checked === false){
     const lastPossition = tasks.length;
@@ -163,7 +155,6 @@ function handleTasks(e){
   }
 }
 //Trigger handleAddTask function when pressing enter
-
 function enterTrigger(e){
   if(e.keyCode === 13){
     handleAddTask();
