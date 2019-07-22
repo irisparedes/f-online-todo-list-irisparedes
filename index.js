@@ -1,4 +1,5 @@
 'use strict';
+
 let dayNumberContent = document.querySelector('.container__header-date-numberday');
 let dayNameContent = document.querySelector('.container__header-date-daymonthyear-day');
 let monthAndYearContent = document.querySelector('.container__header-date-daymonthyear-monthyear');
@@ -10,32 +11,6 @@ const modalWindow = document.querySelector('.container__modal-window');
 const inputTask = document.querySelector('.add__task-input');
 const openModalButton = document.querySelector('.container__footer-button');
 const outsideWindow = document.querySelector('.container__modal');
-
-
-// const allMonths = [
-//   'Enero',
-//   'Febrero',
-//   'Marzo',
-//   'Abril',
-//   'Mayo',
-//   'Junio',
-//   'Julio',
-//   'Agosto',
-//   'Septiembre',
-//   'Octubre',
-//   'Noviembre',
-//   'Diciembre',
-// ];
-
-// const allDays = [
-//   'Lunes',
-//   'Martes',
-//   'Miércoles',
-//   'Jueves',
-//   'Viernes',
-//   'Sábado',
-//   'Domingo',
-// ];
 
 let newTask = {
   value: '',
@@ -201,3 +176,4 @@ inputTask.addEventListener('change', handleWritting);
 inputTask.addEventListener('keyup', enterTrigger);
 openModalButton.addEventListener('click', handleOpenModal);
 outsideWindow.addEventListener('click', handleHideModal);
+
